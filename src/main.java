@@ -183,7 +183,12 @@ public class main {
 		//texto= "https://boletin.dguadalajara.es/boletin/index.php/9-general/26792-boletin-oficial-de-la-provincia-de-guadalajara-num-103-de-lunes-29-de-mayo-de-2017";
 		texto = "https://boletin.dguadalajara.es/boletin/index.php/9-general/26789-Bolet%C3%ADn-Oficial-de-la-Provincia-de-Guadalajara-n%C3%BAm-102-de-lunes-29-de-Mayo-de-2017";
 		
+
 		p= Pattern.compile("[Gg]uadalajara-n[\\W |\\w]m-");
+		
+		//Busca Guadalajara o guadalajara seguido de -n y terminado en m-, y entre -n y m- indica que puede haber caracteres letra w, o caracteres no letra W,
+		// entre 1 y 10 p0siciones
+		//Pattern p= Pattern.compile("[Gg]uadalajara-n[\\w \\ \\W]{1,10}m-"); Este es el que quedo en programa final
 		m=p.matcher(texto);
 		if(m.find()) {
 			System.out.println("encontrado: "+m.group(0));
