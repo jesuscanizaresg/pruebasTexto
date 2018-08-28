@@ -228,7 +228,7 @@ public class main {
 		
 		//Eliminar caracteres no latín.
 		pagina = pagina.replaceAll( "[^\\p{InBasic_Latin}\\p{InLatin-1Supplement}]", " ").replaceAll("[\\xC2\\x9E]|[\\xC2\\x94]","").trim();
-		pagina = pagina.replaceAll("\\p{Cntrl}", "");
+		
 		
 		//A continuación caracteres individuales UTF8 y UTF84mb que aparecen en determinados boletínes.
 		pagina = pagina.replaceAll("[\\xC2\\x85]|[\\xC2\\x83]","").trim();
@@ -271,6 +271,9 @@ public class main {
 		
 		//Quitando tabuladores ( se indexaba con tab en lugar de espacios)
 		pagina = pagina.replaceAll("\t+", " ");
+		
+		//Quitando Caracters de Control No probado, No subido con commit a fecha 28-08-2018
+		//pagina = pagina.replaceAll("\\p{Cntrl}", " ");
 		
 		System.out.println(pagina);
 		
