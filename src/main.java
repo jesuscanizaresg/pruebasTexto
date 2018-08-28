@@ -78,7 +78,7 @@ public class main {
 			
 		URL pdf = null;
 		try {
-			pdf = new URL("&numeroEdicto=1367&ejercicioBop=2018&tipo=bop&anioExpedienteEdicto=2018");
+			pdf = new URL("http://www.google.es");
 		} catch (MalformedURLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -219,12 +219,16 @@ public class main {
 		System.out.println("------------------------------------------------------------------");
 		System.out.println("Texto filtrado por limpiaCaracteresUTF8");
 		
-		String pagina = "";
+		String pagina =  "horas.  Instituto de Educación Secundaria «Diego Porcelos», sito en la calle Eloy García de Quevedo, "
+				+ "s/n. Se examinarán los aspirantes que tengan su domicilio en las provincias de Burgos y Soria. LEÓN: 9:30 horas."
+				+ "  Centro Integrado de Formación Profesional (CIFP) «Tecnológico Industrial», sito en calle Profesor Gaspar Morocho, "
+				+ "s/n. Se examinarán los aspirantes que tengan su domicilio en las provincias de León y Zamora. VALLADOLID: 9:30 horas.  Instituto d";
 		
 		pagina = pagina.replaceAll("ﬁ ", "fi");
 		
 		//Eliminar caracteres no latín.
 		pagina = pagina.replaceAll( "[^\\p{InBasic_Latin}\\p{InLatin-1Supplement}]", " ").replaceAll("[\\xC2\\x9E]|[\\xC2\\x94]","").trim();
+		pagina = pagina.replaceAll("\\p{Cntrl}", "");
 		
 		//A continuación caracteres individuales UTF8 y UTF84mb que aparecen en determinados boletínes.
 		pagina = pagina.replaceAll("[\\xC2\\x85]|[\\xC2\\x83]","").trim();
